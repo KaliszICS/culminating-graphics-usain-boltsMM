@@ -1,0 +1,61 @@
+{
+  "name": "My Java Codespace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+
+  "features": {
+	 	"ghcr.io/devcontainers/features/desktop-lite:1.0.8": {
+	 		"version": "latest",
+	 		"noVncVersion": "1.2.0",
+			"password": "codespaces",
+	 		"webPort": "6080",
+	 		"vncPort": "5901"
+	 	},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "21.fx-zulu",
+			"jdkDistro": "zulu"
+		}
+	},
+	// Forward port for desktop-lite
+    	"forwardPorts": [6080],
+	"portsAttributes": {
+		"6080": {
+			"label": "desktop",
+			// Open simple-browser to the container's forward port.
+			"onAutoForward": "openPreview"
+		}
+	},
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test"
+      ],
+      "settings": {
+        "chat.commandCenter.enabled": false,
+        "chat.agent.enabled": false,
+        "chat.agents.enabled": false,
+        "chatAgent.enabled": false,
+        "chat.editing.enabled": false,
+        "inlineChat.enabled": false,
+        "chat.experimental.offerSetup": false,
+        "github.copilot.chat.welcomeMessage": "never",
+        "github.copilot.enable": { "*": false },
+        "workbench.secondarySideBar.visible": false,
+        "java.server.launchMode": "Standard"
+      }
+    }
+  },
+
+  "postStartCommand": "code --uninstall-extension GitHub.copilot --force 2>/dev/null || true; code --uninstall-extension GitHub.copilot-chat --force 2>/dev/null || true; code --uninstall-extension vscode.chat --force 2>/dev/null || true"
+}
