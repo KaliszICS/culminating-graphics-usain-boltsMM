@@ -1,8 +1,8 @@
 /**
         * File: Basketball Jam
         * Author: Mansoor Muhammad
-        * Date Created: May 2, 2026
-        * Date Last Modified: May 3, 2026
+        * Date Created: May 1, 2026
+        * Date Last Modified: May 2, 2026
         */
 
 import javafx.application.Application;
@@ -21,6 +21,8 @@ public class HelloFX extends Application {
         Scene scene = new Scene(new StackPane(l), 1280, 720);
         stage.setScene(scene);
         stage.show();
+
+        
     }
 
     public static void main(String[] args) {
