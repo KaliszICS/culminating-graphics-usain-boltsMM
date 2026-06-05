@@ -15,9 +15,9 @@ public class HelloFX extends Application {
 
     @Override
     public void start(Stage stage) {
-        String javaVersion = System.getProperty("java.version");
-        String javafxVersion = System.getProperty("javafx.version");
-        Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
+        StackPane stackPane = new StackPane();
+        Rectangle court  = new rectangle(1280, 720,());
+
         Scene scene = new Scene(new StackPane(l), 1280, 720);
         stage.setScene(scene);
         stage.show();
