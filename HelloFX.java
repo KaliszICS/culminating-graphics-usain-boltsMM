@@ -2,7 +2,7 @@
         * File: Basketball Jam
         * Author: Mansoor Muhammad
         * Date Created: May 1, 2026
-        * Date Last Modified: May 7, 2026
+        * Date Last Modified: May 8, 2026
         */
 
 import javafx.application.Application;
@@ -15,12 +15,14 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+boolean music = true;
 
 public class HelloFX extends Application {
 
     @Override
     public void start(Stage stage) {
     StackPane menu = new StackPane();
+        Pane menuItems = new Pane();
 
         Image courtImage = new Image("icons/basketballCourtsideView.png");
         ImageView court = new ImageView(courtImage);
@@ -33,8 +35,8 @@ public class HelloFX extends Application {
         title.setStyle("-fx-font-size: 70px; -fx-text-fill: orange; -fx-font-weight: bold;");
 
         Button startButton = new Button("START");
-        startButton.setLayoutX(1280);
-        startButton.setLayoutY(720);
+        startButton.setLayoutX(565);
+        startButton.setLayoutY(300);
         startButton.setPrefWidth(150);
         startButton.setPrefHeight(50);
 
@@ -45,11 +47,11 @@ public class HelloFX extends Application {
         exitButton.setPrefHeight(50);
 
         Button musicButton = new Button("Music: ✓");
-        musicButton.setLayoutX(50);
-        musicButton.setLayoutY(500);
-        musicButton.setPrefWidth(75);
-        musicButton.setPrefHeight(25);
-        /*
+        musicButton.setLayoutX(565);
+        musicButton.setLayoutY(460);
+        musicButton.setPrefWidth(150);
+        musicButton.setPrefHeight(50);
+
         musicButton.setOnAction(e -> {
             music = !music;
 
@@ -59,14 +61,14 @@ public class HelloFX extends Application {
                 musicButton.setText("Music: X");
             }
         });
-        */
 
-        
+        menuItems.getChildren().add(title);
+        menuItems.getChildren().add(startButton);
+        menuItems.getChildren().add(exitButton);
+        menuItems.getChildren().add(musicButton);
+
         menu.getChildren().add(court);
-        menu.getChildren().add(title);
-        menu.getChildren().add(startButton);
-        menu.getChildren().add(exitButton);
-        menu.getChildren().add(musicButton);
+        menu.getChildren().add(menuItems);
 
         Scene scene = new Scene(menu, 1280, 720);
 
@@ -79,7 +81,8 @@ public class HelloFX extends Application {
     }
 
     public void showGame(Stage stage) {
-        Pane game = new Pane();
+        StackPane game = new StackPane();
+        Pane gameItems = new Pane();
 
         Image courtImage = new Image("icons/basketballCourtsideView.png");
         ImageView court = new ImageView(courtImage);
@@ -100,7 +103,7 @@ public class HelloFX extends Application {
 
         Label musicStatus = new Label();
 
-        if (false) {
+        if (music) {
             musicStatus.setText("Music is ON");
         } else {
             musicStatus.setText("Music is OFF");
@@ -110,10 +113,12 @@ public class HelloFX extends Application {
         musicStatus.setLayoutY(20);
         musicStatus.setStyle("-fx-font-size: 22px; -fx-text-fill: white;");
 
+        gameItems.getChildren().add(ball);
+        gameItems.getChildren().add(instructions);
+        gameItems.getChildren().add(musicStatus);
+
         game.getChildren().add(court);
-        game.getChildren().add(ball);
-        game.getChildren().add(instructions);
-        game.getChildren().add(musicStatus);
+        game.getChildren().add(gameItems);
 
         Scene scene = new Scene(game, 1280, 720);
         stage.setScene(scene);
