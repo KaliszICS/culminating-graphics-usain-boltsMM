@@ -1,0 +1,11 @@
+K(30%): 80
+I(30%): 85
+C(10%): 50
+A(30%): 90
+81.5%
+
+Missing Comments
+You never used the MediaPlayer though!
+Use smaller numbers to give more variance to when the ball can go in.  Making it only 10 makes it incredibly difficult and doesn't leave much leeway in time.
+You added A LOT of code on the last day.  This makes me skeptical that you did this all on your own and without AI help.
+This is why you must commit everyday, so that you work on it every day.
